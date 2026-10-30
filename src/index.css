@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* our own font and colors, we can use them like font-sans, bg-ink, text-brand */
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #14142b;
+  --color-canvas: #f4f5fa;
+  --color-brand: #4f46e5;
+  --color-brand-dark: #4338ca;
+  --color-brand-soft: #eef0ff;
+
+  /* small pop animation for the popup */
+  --animate-pop: pop 0.18s ease-out;
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+/* keyboard focus ring for buttons (inputs already have their own ring) */
+@layer base {
+  button:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
